@@ -11,25 +11,18 @@ namespace lab3lonerevision
         {
             //Läs in antal index i arrayen (löner i arrayen)
             int numberOfSalaries = ReadInt("Enter total number of salaries: ");
-            int[] salaries = new int[numberOfSalaries];
-
+            
             //Läs in de olika lönerna med hjälp av array
             ProcessSalaries(numberOfSalaries);
 
-
-           //Sortera lönerna i storleksordning
-            
-
-            //Läs ut medianlönen, udda antal - mittersta, jämt antal - två mittersta / 2
-
             //Skriv ut.
         }
-	 
+
         static void ProcessSalaries(int count)
         {
             int[] salaries = new int[count];
 
-            for (int i = 0; i < count ; i++)
+            for (int i = 0; i < count; i++)
             {
                 Console.Write("Enter the salary number {0}:", i);
                 salaries[i] = int.Parse(Console.ReadLine());
@@ -47,7 +40,7 @@ namespace lab3lonerevision
                 //mittersta värdet = medianlön      
             }
 
-            else 
+            else
             {
                 int median;
                 int value1;
@@ -56,28 +49,26 @@ namespace lab3lonerevision
                 value2 = value1 - 1;
                 median = salaries[value1] + salaries[value2];
                 Console.WriteLine("---------------------------");
-                Console.WriteLine("Median salary  : {0,10:c0}", median / 2); 
+                Console.WriteLine("Median salary  : {0,10:c0}", median / 2);
                 //Två mittersta värdena/2 = medianlön
             }
-           //averagepayuträkning
+            //averagepayuträkning
 
             int totalPay = 0;
             for (int j = 0; j < count; j++)
             {
                 totalPay += salaries[j];
-                
+
             }
-            Console.WriteLine("Average salary : {0,10:c0}" , totalPay/count);
+            Console.WriteLine("Average salary : {0,10:c0}", totalPay / count);
 
-            
 
-            //Console.Write("Medianlön:{0}");
-            //Console.WriteLine("Average Salary: ");
-            Console.WriteLine("Salary spread:");
+            int salarySpread = salaries.Max() - salaries.Min();
+            Console.WriteLine("Salary spread  : {0,10:c0}", salarySpread);
             Console.WriteLine("---------------------------");
 
         }
-            
+
 
         static int ReadInt(string prompt)
         {
