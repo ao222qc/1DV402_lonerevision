@@ -35,12 +35,10 @@ namespace lab3lonerevision
         {
             int[] salaries = new int[count];
             int[] salariesUnsorted = new int[count];
-            int number = 0;
+            int number = 1;
             for (int i = 0; i < count; i++)
             {
-                number += 1;
-                Console.Write("Enter the salary number {0}:", number);
-                salaries[i] = int.Parse(Console.ReadLine());
+                salaries[i] = ReadInt("Input salary " + number++ + ": ");
             }
 
             Array.Copy(salaries, salariesUnsorted, count);
@@ -51,7 +49,7 @@ namespace lab3lonerevision
                 int median = salaries.Length / 2;
                 Console.WriteLine("---------------------------");
                 Console.WriteLine("Median salary  : {0,10:c0}", salaries[median]);
-                
+
                 //mittersta värdet = medianlön      
             }
 
@@ -103,13 +101,16 @@ namespace lab3lonerevision
                     Console.Write(prompt);
                     int numberOfSalaries = int.Parse(Console.ReadLine());
                     return numberOfSalaries;
-                    break;
+                    
                 }
                 catch (FormatException)
                 {
                     Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("Please enter a valid format!");
+                    Console.WriteLine(" is not a valid format. Please enter a valid format!");
+                    Console.ResetColor();
                 }
+
+              
             }
 
         }
