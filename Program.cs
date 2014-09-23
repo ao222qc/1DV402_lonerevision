@@ -96,17 +96,19 @@ namespace lab3lonerevision
         {
             while (true)
             {
+                Console.Write(prompt);
+                string input = Console.ReadLine();
+
                 try
                 {
-                    Console.Write(prompt);
-                    int numberOfSalaries = int.Parse(Console.ReadLine());
+                    int numberOfSalaries = int.Parse(input);
                     return numberOfSalaries;
                     
                 }
                 catch (FormatException)
                 {
                     Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine(" is not a valid format. Please enter a valid format!");
+                    Console.WriteLine("'{0}' is not a valid format. Please enter a valid format!", input);
                     Console.ResetColor();
                 }
 
